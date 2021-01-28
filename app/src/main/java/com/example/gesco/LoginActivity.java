@@ -17,9 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
-        string username, password;
+        
         ImageButton button_ques =(ImageButton) findViewById(R.id.button_question);
         button_ques.setOnClickListener(new View.OnClickListener() {
             @Override
