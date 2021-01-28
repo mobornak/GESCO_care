@@ -19,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-
+        string username, password;
         ImageButton button_ques =(ImageButton) findViewById(R.id.button_question);
         button_ques.setOnClickListener(new View.OnClickListener() {
             @Override
