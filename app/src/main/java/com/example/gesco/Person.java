@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Person extends AppCompatActivity {
      String username;
+    String usernae;
      String password;
     public int PersonLogin (){
         EditText usernameInput;
