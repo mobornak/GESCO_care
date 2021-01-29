@@ -11,6 +11,10 @@ public class Person extends AppCompatActivity {
     public int PersonLogin (){
         EditText usernameInput;
         EditText passwordInput;
+
+        String insertUrl = "http://google.com";
+        RequestQueue queue;
+
         usernameInput = (EditText) findViewById(R.id.editTextTextEmailAddress);
         passwordInput = (EditText) findViewById(R.id.editTextNumberPassword);
         this.username = usernameInput.getText().toString();
