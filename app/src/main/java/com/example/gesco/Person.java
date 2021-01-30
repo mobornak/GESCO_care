@@ -16,30 +16,45 @@ import java.util.Map;
 public class Person extends AppCompatActivity {
     String username;
     String password;
+
     public int PersonLogin (){
         EditText usernameInput;
         EditText passwordInput;
-
-        String url = "http://google.com";
-        RequestQueue queue = Volley.newRequestQueue(Person.this);
-        StringRequest stringrequest = new StringRequest(Request.Method.Post, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-
-            }, new Response.ErrorListener(){
-
-            }
-        }){
-            protected Map<String,String> getParams(){
-
-            }
-            protected Map<String,String>
-        }
-
         usernameInput = (EditText) findViewById(R.id.editTextTextEmailAddress);
         passwordInput = (EditText) findViewById(R.id.editTextNumberPassword);
         this.username = usernameInput.getText().toString();
         this.password = passwordInput.getText().toString();
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url ="http://myserveraddress";
+
+        StringRequest strRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response)
+                    {
+                        Toast.makeText(getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+        {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("tag", "test");
+                return params;
+            }
+        };
+        queue.add(strRequest);
         return 1;
     }
 }
